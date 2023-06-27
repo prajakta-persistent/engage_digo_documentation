@@ -1,0 +1,75 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/users":
+    get:
+      summary: list users
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create user
+      parameters:
+      - name: client_id
+        in: path
+        description: Client ID
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        description: First name and Last name
+        required: true
+        schema:
+          type: string
+      - name: Phone_number
+        in: path
+        description: Please enter phone number with country code
+        required: true
+        schema:
+          type: string
+      - name: status
+        in: path
+        description:  Active , Inactive
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+  "/users/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show user
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update user
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update user
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete user
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
